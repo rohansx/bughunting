@@ -1,0 +1,386 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>BBHT Resources</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="dorks.html"><strong aria-hidden="true">1.</strong> Dorks to find program</a></li><li class="chapter-item expanded "><a href="subdomain(CITAO).html"><strong aria-hidden="true">2.</strong> Can-i-take-all-over-xyz</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">BBHT Resources</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="bug-bounty-dorks-to-find-a-program"><a class="header" href="#bug-bounty-dorks-to-find-a-program">Bug Bounty Dorks to find a program</a></h2>
+<p>inurl /bug bounty <br>
+inurl : / security <br>
+inurl:security.txt <br>
+inurl:security &quot;reward&quot; <br>
+inurl : /responsible disclosure <br>
+inurl : /responsible-disclosure/ reward <br>
+inurl : / responsible-disclosure/ swag <br>
+inurl : / responsible-disclosure/ bounty <br>
+inurl:'/responsible disclosure' hoodie <br>
+responsible disclosure swag r=h:com <br>
+responsible disclosure hall of fame <br>
+responsible disclosure europe <br>
+responsible disclosure white hat <br>
+white hat program <br>
+insite:&quot;responsible disclosure&quot; -inurl:nl <br>
+intext responsible disclosure <br>
+site eu responsible disclosure <br>
+site .nl responsible disclosure <br> 
+site responsible disclosure <br>
+responsible disclosure:sites <br>
+responsible disclosure r=h:nl <br>
+responsible disclosure r=h:uk <br>
+responsible disclosure r=h:eu <br>
+responsible disclosure bounty r=h:nl <br>
+responsible disclosure bounty r=h:uk <br>
+responsible disclosure bounty r=h:eu <br>
+responsible disclosure swag r=h:nl <br>
+responsible disclosure swag r=h:uk <br>
+responsible disclosure swag r=h:eu <br>
+responsible disclosure reward r=h:nl <br>
+responsible disclosure reward r=h:uk <br>
+responsible disclosure reward r=h:eu <br>
+&quot;powered by bugcrowd&quot; -site:bugcrowd.com <br>
+&quot;powered by hackerone&quot; &quot;submit vulnerability report&quot; <br>
+&quot;submit vulnerability report&quot; <br>
+site:responsibledisclosure.com <br>
+inurl:'vulnerability-disclosure-policy' reward <br>
+intext:Vulnerability Disclosure site:nl <br>
+intext:Vulnerability Disclosure site:eu <br>
+site:<em>.</em>.nl intext:security report reward <br>
+site:<em>.</em>.nl intext:responsible disclosure reward <br>
+&quot;security vulnerability&quot; &quot;report&quot; <br>
+inurl&quot;security report&quot; <br>
+&quot;responsible disclosure&quot; university <br>
+inurl:/responsible-disclosure/ university <br>
+buy bitcoins &quot;bug bounty&quot; <br>
+inurl:/security ext:txt &quot;contact&quot; <br>
+&quot;powered by synack&quot; <br>
+intext:responsible disclosure bounty <br>
+inurl: private bugbountyprogram <br>
+inurl:/.well-known/security ext:txt <br>
+inurl:/.well-known/security ext:txt intext:hackerone <br>
+inurl:/.well-known/security ext:txt -hackerone -bugcrowd -synack -openbugbounty <br>
+inurl:reporting-security-issues <br>
+inurl:security-policy.txt ext:txt <br>
+site:<em>.</em>.* inurl:bug inurl:bounty <br>
+site:help.<em>.</em> inurl:bounty <br>
+site:support.<em>.</em> intext:security report reward <br>
+intext:security report monetary inurl:security  <br>
+intext:security report reward inurl:report <br>
+site:security.<em>.</em> inurl: bounty <br>
+site:<em>.</em>.de inurl:bug inurl:bounty <br>
+site:<em>.</em>.uk intext:security report reward <br>
+site:<em>.</em>.cn intext:security report reward <br>
+&quot;vulnerability reporting policy&quot; <br>
+&quot;van de melding met een minimum van een&quot; -site:responsibledisclosure.nl <br>
+inurl : /bitcon bug bounty <br>
+inurl : btc security rewards <br></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="subdomain---can-i-take-all-over-xyz"><a class="header" href="#subdomain---can-i-take-all-over-xyz">SUBDOMAIN - CAN-I-TAKE-ALL-OVER-XYZ</a></h2>
+<h2 id="disclaimer-warning"><a class="header" href="#disclaimer-warning">Disclaimer :warning:</a></h2>
+<p><strong>The authors of this document take no responsibility for correctness. This project is merely here to help guide security researchers towards determining whether something is vulnerable or not, but does not guarantee accuracy. This project heavily relies on contributions from the public; therefore, proving that something is vulnerable is the security researcher and bug bounty program's sole discretion. On top of that, it is worth noting that some bug bounty programs may accept dangling DNS record reports without requiring proof of compromise.</strong></p>
+<h2 id="what-is-a-subdomain-takeover"><a class="header" href="#what-is-a-subdomain-takeover">What is a subdomain takeover?</a></h2>
+<blockquote>
+<p>Subdomain takeover vulnerabilities occur when a subdomain (subdomain.example.com) is pointing to a service (e.g. GitHub pages, Heroku, etc.) that has been removed or deleted. This allows an attacker to set up a page on the service that was being used and point their page to that subdomain. For example, if subdomain.example.com was pointing to a GitHub page and the user decided to delete their GitHub page, an attacker can now create a GitHub page, add a CNAME file containing subdomain.example.com, and claim subdomain.example.com.</p>
+</blockquote>
+<p>You can read up more about subdomain takeovers here:</p>
+<ul>
+<li><a href="https://labs.detectify.com/2014/10/21/hostile-subdomain-takeover-using-herokugithubdesk-more/">https://labs.detectify.com/2014/10/21/hostile-subdomain-takeover-using-herokugithubdesk-more/</a></li>
+<li><a href="https://www.hackerone.com/blog/Guide-Subdomain-Takeovers">https://www.hackerone.com/blog/Guide-Subdomain-Takeovers</a></li>
+<li><a href="https://0xpatrik.com/subdomain-takeover-ns/">https://0xpatrik.com/subdomain-takeover-ns/</a></li>
+</ul>
+<h2 id="safely-demonstrating-a-subdomain-takeover"><a class="header" href="#safely-demonstrating-a-subdomain-takeover">Safely demonstrating a subdomain takeover</a></h2>
+<p>Based on personal experience, claiming the subdomain discreetly and serving a harmless file on a hidden page is usually enough to demonstrate the security vulnerability. Do not serve content on the index page. A good proof of concept could consist of an HTML comment served via a random path:</p>
+<pre><code>$ cat index.html
+&lt;!-- PoC by Hacker --&gt;
+</code></pre>
+<p>Please be advised that this depends on what bug bounty program you are targeting. When in doubt, please refer to the bug bounty program's security policy and/or request clarifications from the team behind the program.</p>
+<h2 id="how-to-use-this-project"><a class="header" href="#how-to-use-this-project">How to use this project</a></h2>
+<p>I recommend searching for the name of the service you are targeting in the issues tab. That way you can see the on-going discussion and more detailed steps on how to claim the subdomain you are after.</p>
+<h2 id="how-to-contribute"><a class="header" href="#how-to-contribute">How to contribute</a></h2>
+<p>You can submit new services here: https://github.com/shifa123/ALLsubdomaintakeovers/issues/new?template=new-entry.md</p>
+<h1 id="all-entries"><a class="header" href="#all-entries">All entries</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>Engine</th><th>Status</th><th>Old Fingerprint</th><th>New Fingerprint</th><th>Documentation</th></tr></thead><tbody>
+<tr><td>Acquia</td><td>Not vulnerable</td><td><code>Web Site Not Found</code></td><td><code>If you are an Acquia Cloud customer and expect to see your site at this address</code> ``</td><td><a href="https://github.com/EdOverflow/can-i-take-over-xyz/issues/103">Issue #103</a></td></tr>
+<tr><td>Aftership</td><td>Vulnerable</td><td></td><td><code>Oops.&lt;/h2&gt;&lt;p class=&quot;text-muted text-tight&quot;&gt;The page you're looking for doesn't exist.</code></td><td></td></tr>
+<tr><td>Agile CRM</td><td>Vulnerable</td><td><code>Sorry, this page is no longer available.</code></td><td><code>Sorry, this page is no longer available</code></td><td></td></tr>
+<tr><td>Aha</td><td>Vulnerable</td><td></td><td><code>There is no portal here ... sending you back to Aha!</code></td><td></td></tr>
+<tr><td>Airee.ru</td><td>Vulnerable</td><td></td><td><code>Ошибка 402. Сервис  Айри.рф  не  оплачен</code></td><td></td></tr>
+<tr><td>Anima</td><td>Vulnerable</td><td><code>If this is your website and you've just created it, try refreshing in a minute</code></td><td><code>If this is your website and you've just created it, try refreshing in a minute</code></td><td></td></tr>
+<tr><td>Akamai</td><td>Not vulnerable</td><td></td><td>Not Vulnerable</td><td></td></tr>
+<tr><td>AWS/S3</td><td>Vulnerable</td><td><code>The specified bucket does not exist</code></td><td><code>The specified bucket does not exist</code></td><td></td></tr>
+<tr><td>Bigcartel</td><td>Vulnerable</td><td></td><td><code>&lt;h1&gt;Oops! We couldn&amp;#8217;t find that page.&lt;/h1&gt;</code></td><td></td></tr>
+<tr><td>Bitbucket</td><td>Vulnerable</td><td><code>Repository not found</code></td><td><code>The page you have requested does not exist</code></td><td></td></tr>
+<tr><td>Brightcove</td><td>Vulnerable</td><td></td><td><code>&lt;p class=&quot;bc-gallery-error-code&quot;&gt;Error Code: 404&lt;/p&gt;</code></td><td></td></tr>
+<tr><td>Campaign Monitor</td><td>Vulnerable</td><td><code>Trying to access your account?</code></td><td><code>&lt;strong&gt;Trying to access your account?&lt;/strong&gt;</code></td><td></td></tr>
+<tr><td>Canny</td><td>Vulnerable</td><td><code>Trying to access your account?</code></td><td><code>Company Not Found</code></td><td></td></tr>
+<tr><td>Cargo</td><td>Vulnerable</td><td></td><td><code>If you're moving your domain away from Cargo you must make this configuration through your registrar's DNS control panel.</code></td><td></td></tr>
+<tr><td>Cargo Collective</td><td>Vulnerable</td><td><code>404 Not Found</code></td><td><code>&lt;div class=&quot;notfound&quot;&gt;</code></td><td></td></tr>
+<tr><td>Cloudfront</td><td>Not vulnerable</td><td><code>ViewerCertificateException</code></td><td></td><td></td></tr>
+<tr><td>Desk</td><td>Vulnerable</td><td><code>Please try again or try Desk.com free for 14 days.</code></td><td><code>this help center no longer exists</code></td><td></td></tr>
+<tr><td>Digital Ocean</td><td>Vulnerable</td><td><code>Domain uses DO name serves with no records in DO.</code></td><td></td><td></td></tr>
+<tr><td>Discourse</td><td>Vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Fastly</td><td>Edge case</td><td><code>Fastly error: unknown domain:</code></td><td><code>Fastly error: unknown domain:</code></td><td></td></tr>
+<tr><td>Feedpress</td><td>Not vulnerable</td><td><code>The feed has not been found.</code></td><td><code>The feed has not been found.</code></td><td></td></tr>
+<tr><td>Firebase</td><td>Not Vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Fly.io</td><td>Vulnerable</td><td><code>404 Not Found</code></td><td></td><td></td></tr>
+<tr><td>Freshdesk</td><td>Not vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Frontify</td><td>Vulnerable</td><td><code>404 - Page Not Found</code></td><td><code>Oops… looks like you got lost</code></td><td></td></tr>
+<tr><td>Gemfury</td><td>Vulnerable</td><td><code>404: This page could not be found.</code></td><td><code>404: This page could not be found.</code></td><td></td></tr>
+<tr><td>Ghost</td><td>vulnerable</td><td><code>The thing you were looking for is no longer here, or never was</code></td><td><code>The thing you were looking for is no longer here</code></td><td></td></tr>
+<tr><td>Github</td><td>vulnerable</td><td><code>There isn't a Github Pages site here.</code></td><td><code>There isn't a GitHub Pages site here.</code></td><td></td></tr>
+<tr><td>Gitlab</td><td>Not Vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Google Cloud Storage</td><td>Vulnerable</td><td><code>NoSuchBucket The specified bucket does not exist.</code></td><td></td><td></td></tr>
+<tr><td>Getresponse</td><td>vulnerable</td><td><code>With GetResponse Landing Pages, lead generation has never been easier</code></td><td><code>With GetResponse Landing Pages, lead generation has never been easier</code></td><td></td></tr>
+<tr><td>HatenaBlog</td><td>Vulnerable</td><td><code>404 Blog is not found</code></td><td><code>404 Blog is not found</code></td><td></td></tr>
+<tr><td>Help Juice</td><td>vulnerable</td><td><code>We could not find what you're looking for.</code></td><td><code>We could not find what you're looking for.</code></td><td></td></tr>
+<tr><td>Help Scout</td><td>Vulnerable</td><td><code>No settings were found for this company:</code></td><td><code>No settings were found for this company:</code></td><td></td></tr>
+<tr><td>Heroku</td><td>Edge case</td><td><code>No such app</code></td><td><code>There's nothing here, yet.</code></td><td></td></tr>
+<tr><td>Helprace</td><td>Vulnerable</td><td></td><td><code>Alias not configured!</code></td><td></td></tr>
+<tr><td>Hubspot</td><td>vulnerable</td><td></td><td><code>Domain not found</code></td><td></td></tr>
+<tr><td>Instapage</td><td>Non Vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Intercom</td><td>vulnerable</td><td><code>Uh oh. That page doesn't exist.</code></td><td><code>This page is reserved for artistic dogs.</code></td><td></td></tr>
+<tr><td>JetBrains</td><td>Vulnerable</td><td><code>is not a registered InCloud YouTrack</code></td><td><code>is not a registered InCloud YouTrack.</code></td><td></td></tr>
+<tr><td>Jazzhr</td><td>Vulnerable</td><td></td><td><code>This account no longer active</code></td><td></td></tr>
+<tr><td>Key CDN</td><td>Not vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Kinsta</td><td>Vulnerable</td><td><code>No Site For Domain</code></td><td><code>No Site For Domain</code></td><td></td></tr>
+<tr><td>LaunchRock</td><td>vulnerable</td><td><code>It looks like you may have taken a wrong turn somewhere. Don't worry...it happens to all of us.</code></td><td><code>It looks like you may have taken a wrong turn somewhere. Don't worry...it happens to all of us.</code></td><td></td></tr>
+<tr><td>Landingi</td><td>vulnerable</td><td></td><td><code>It looks like you're lost</code></td><td></td></tr>
+<tr><td>Mashery</td><td>Edge Case</td><td><code>Unrecognized domain</code></td><td><code>Unrecognized domain &lt;strong&gt;</code></td><td></td></tr>
+<tr><td>Microsoft Azure</td><td>vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Netlify</td><td>Edge Case</td><td></td><td><code>Not Found</code></td><td></td></tr>
+<tr><td>Ngrok</td><td>vulnerable</td><td><code>Tunnel *.ngrok.io not found</code></td><td><code>ngrok.io not found</code></td><td></td></tr>
+<tr><td>Pantheon</td><td>Vulnerable</td><td><code>404 error unknown site!</code></td><td><code>The gods are wise, but do not know of the site which you seek.</code></td><td></td></tr>
+<tr><td>Pingdom</td><td>vulnerable</td><td><code>This public report page has not been activated by the user</code></td><td><code>Public Report Not Activated</code></td><td></td></tr>
+<tr><td>Proposify</td><td>Vulnerable</td><td></td><td><code>If you need immediate assistance, please contact &lt;a href=&quot;mailto:support@proposify.biz</code></td><td></td></tr>
+<tr><td>Readme.io</td><td>Vulnerable</td><td><code>Project doesnt exist... yet!</code></td><td><code>Project doesnt exist... yet!</code></td><td></td></tr>
+<tr><td>Readthedocs</td><td>vulnerable</td><td></td><td><code>unknown to Read the Docs</code></td><td></td></tr>
+<tr><td>Sendgrid</td><td>Not vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Shopify</td><td>Vulnerable</td><td><code>Sorry, this shop is currently unavailable.</code></td><td><code>Only one step left!</code></td><td></td></tr>
+<tr><td>SmartJobBoard</td><td>vulnerable</td><td><code>This job board website is either expired or its domain name is invalid.</code></td><td><code>Job Board Is Unavailable</code></td><td></td></tr>
+<tr><td>Squarespace</td><td>Not Vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Statuspage</td><td>Not vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Strikingly</td><td>Vulnerable</td><td><code>page not found</code></td><td><code>But if you're looking to build your own website</code></td><td></td></tr>
+<tr><td>Surge.sh</td><td>vulnerable</td><td><code>project not found</code></td><td><code>project not found</code></td><td></td></tr>
+<tr><td>Simplebooklet</td><td>vulnerable</td><td></td><td><code>We can't find this &lt;a href=&quot;https://simplebooklet.com</code></td><td></td></tr>
+<tr><td>Smartling</td><td>Vulnerable</td><td></td><td><code>Domain is not configured</code></td><td></td></tr>
+<tr><td>Smugmug</td><td>vulnerable</td><td></td><td><code>{&quot;text&quot;:&quot;Page Not Found&quot;</code></td><td></td></tr>
+<tr><td>Surveygizmo</td><td>vulnerable</td><td></td><td><code>data-html-name</code></td><td></td></tr>
+<tr><td>Tave</td><td>Vulnerable</td><td></td><td><code>&lt;h1&gt;Error 404: Page Not Found&lt;/h1&gt;</code></td><td></td></tr>
+<tr><td>Teamwork</td><td>vulnerable</td><td></td><td><code>Oops - We didn't find your site.</code></td><td></td></tr>
+<tr><td>Tictail</td><td>vulnerable</td><td></td><td><code>Building a brand of your own?</code></td><td></td></tr>
+<tr><td>Tumblr</td><td>Edge Case</td><td><code>Whatever you were looking for doesn't currently exist at this address</code></td><td><code>There's nothing here.</code></td><td></td></tr>
+<tr><td>Tilda</td><td>Edge Case</td><td><code>Please renew your subscription</code></td><td><code>&lt;title&gt;Please renew your subscription&lt;/title&gt;</code></td><td></td></tr>
+<tr><td>Uberflip</td><td>Vulnerable</td><td><code>Non-hub domain, The URL you've accessed does not provide a hub.</code></td><td><code>Non-hub domain, The URL you've accessed does not provide a hub.</code></td><td></td></tr>
+<tr><td>Unbounce</td><td>Edge Case</td><td><code>The requested URL was not found on this server.</code></td><td><code>The requested URL was not found on this server.</code></td><td></td></tr>
+<tr><td>Uptimerobot</td><td>Vulnerable</td><td><code>page not found</code></td><td><code>page not found</code></td><td></td></tr>
+<tr><td>UserVoice</td><td>vulnerable</td><td><code>This UserVoice subdomain is currently available!</code></td><td><code>This UserVoice subdomain is currently available!</code></td><td></td></tr>
+<tr><td>Vercel</td><td>Vulnerable</td><td></td><td><code>The deployment could not be found on Vercel.</code></td><td></td></tr>
+<tr><td>Vend</td><td>vulnerable</td><td></td><td><code>Looks like you've traveled too far into cyberspace.</code></td><td></td></tr>
+<tr><td>Webflow</td><td>Edge Case</td><td><code>The page you are looking for doesn't exist or has been moved.</code></td><td><code>&lt;p class=&quot;description&quot;&gt;The page you are looking for doesn't exist or has been moved.&lt;/p&gt;</code></td><td></td></tr>
+<tr><td>Wishpond</td><td>Vulnerable</td><td></td><td><code>https://www.wishpond.com/404?campaign=true</code></td><td></td></tr>
+<tr><td>Wufoo</td><td>vulnerable</td><td></td><td><code>Profile not found</code></td><td></td></tr>
+<tr><td>Wordpress</td><td>vulnerable</td><td><code>Do you want to register *.wordpress.com?</code></td><td><code>Do you want to register</code></td><td></td></tr>
+<tr><td>Worksites</td><td>Vulnerable</td><td><code>Hello! Sorry, but the website you&amp;rsquo;re looking for doesn&amp;rsquo;t exist.</code></td><td>`Company Not Found</td><td>you’re looking for doesn’t exist`</td></tr>
+<tr><td>WP Engine</td><td>Not vulnerable</td><td></td><td></td><td></td></tr>
+<tr><td>Zendesk</td><td>Not vulnerable</td><td><code>Help Center Closed</code></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
