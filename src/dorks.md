@@ -1,4 +1,4 @@
-## Bug Bounty Dorks to find a program
+# Bug Bounty Dorks to find a program
 
 inurl /bug bounty <br>
 inurl : / security <br>
