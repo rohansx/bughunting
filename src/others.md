@@ -2,7 +2,7 @@
 
 - [BBHT](https://www.bugbountyhunting.com/?)
 - [Nahamsec resources](https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters)
-- BBHT cheatsheet](https://github.com/EdOverflow/bugbounty-cheatsheet)
+- [BBHT cheatsheet](https://github.com/EdOverflow/bugbounty-cheatsheet)
 - [Pentest tools](https://pentest-tools.com/information-gathering/google-hacking)
 - [SoldierX](https://www.soldierx.com/)
 - [Xmind](https://www.xmind.net/m/8Hkymg/#)

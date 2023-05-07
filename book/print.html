@@ -282,7 +282,6 @@ inurl : btc security rewards <br></p>
 <li><a href="http://www.toolswatch.org/">TOOLSWATCH</a></li>
 <li><a href="http://www.romhacking.net/utilities/">ROMHACKING</a></li>
 <li><a href="https://blackarch.org/tools.html">BLACK ARCH</a></li>
-<li></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="hacking-labs"><a class="header" href="#hacking-labs">Hacking labs</a></h1>
 <ul>
@@ -434,12 +433,13 @@ inurl : btc security rewards <br></p>
 <ul>
 <li><a href="https://www.notion.so/Checklist-1-After-Recon-Beginner-s-Friendly-c0edfa16fd5c438ba11ef4da2e256a23">Checklist 1</a></li>
 <li><a href="https://www.notion.so/Checklist-2-After-Recon-Deep-Inside-80bb4906a3034682ab4053a8185a4615">Checklist 2</a></li>
+<li><a href="https://alike-lantern-72d.notion.site/Web-Application-Penetration-Testing-Checklist-4792d95add7d4ffd85dd50a5f50659c6">Checklist 3</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="others"><a class="header" href="#others">Others</a></h1>
 <ul>
 <li><a href="https://www.bugbountyhunting.com/?">BBHT</a></li>
 <li><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters">Nahamsec resources</a></li>
-<li>BBHT cheatsheet](https://github.com/EdOverflow/bugbounty-cheatsheet)</li>
+<li><a href="https://github.com/EdOverflow/bugbounty-cheatsheet">BBHT cheatsheet</a></li>
 <li><a href="https://pentest-tools.com/information-gathering/google-hacking">Pentest tools</a></li>
 <li><a href="https://www.soldierx.com/">SoldierX</a></li>
 <li><a href="https://www.xmind.net/m/8Hkymg/#">Xmind</a></li>
@@ -470,6 +470,22 @@ inurl : btc security rewards <br></p>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

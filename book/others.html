@@ -148,7 +148,7 @@
 <ul>
 <li><a href="https://www.bugbountyhunting.com/?">BBHT</a></li>
 <li><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters">Nahamsec resources</a></li>
-<li>BBHT cheatsheet](https://github.com/EdOverflow/bugbounty-cheatsheet)</li>
+<li><a href="https://github.com/EdOverflow/bugbounty-cheatsheet">BBHT cheatsheet</a></li>
 <li><a href="https://pentest-tools.com/information-gathering/google-hacking">Pentest tools</a></li>
 <li><a href="https://www.soldierx.com/">SoldierX</a></li>
 <li><a href="https://www.xmind.net/m/8Hkymg/#">Xmind</a></li>
@@ -185,6 +185,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
