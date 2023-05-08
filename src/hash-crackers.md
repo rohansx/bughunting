@@ -4,4 +4,3 @@
 - [HASHTOOLKIT](https://hashtoolkit.com/)
 - [CRACK STATION](https://crackstation.net/)
 - [OL-HASHCRACK](https://www.onlinehashcrack.com/)
-- 
