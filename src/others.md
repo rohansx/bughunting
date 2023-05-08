@@ -14,3 +14,4 @@
 - [OWASP xss cheatsheet](https://owasp.org/www-community/xss-filter-evasion-cheatsheet)
 - [list of writeups](https://pentester.land/list-of-bug-bounty-writeups.html)
 - [Entysec](https://github.com/EntySec/RomBuster)
+- [Google havking for xss and openredirect](https://seckrd.com/google-hacking.php)
