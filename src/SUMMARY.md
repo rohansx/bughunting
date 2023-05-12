@@ -14,3 +14,5 @@
 - [Can-i-take-all-over-xyz](./subdomain(CITAO).md)
 - [Checklist](./checklist.md)
 - [Others](./others.md)
+- [Some google dorks](./some-google-dorks.md)
+- 
