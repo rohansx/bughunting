@@ -6,7 +6,7 @@
 - [Vulnerabilites DB](./vulnerabilities-db.md)
 - [Exploits DB](./exploits-db.md)
 - [IP Lookup](./ip-lookup.md)
-- [Tools Download](./tools-download.md)
+- [Tools](./tools-download.md)
 - [Hacking labs](./hacking-labs.md)
 - [Encrpyt/Decrypt](./encrypt-decrpyt.md)
 - [Hash Crackers](./hash-crackers.md)
